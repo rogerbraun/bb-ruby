@@ -126,6 +126,12 @@ module BBRuby
       'Quote with citation',
       '[quote=mike]Now is the time...[/quote]',
       :quote],
+    'Quote (phpbb)' => [
+      /\[quote=(?:&quot;)?(.*?)(?:&quot;)?(:.*)?\](.*?)\[\/quote\2?\]/mi,
+      '<fieldset><legend>\1</legend><blockquote>\3</blockquote></fieldset>',
+      'Quote with citation',
+      '[quote=mike:1234]Now is the time...[/quote:1234]',
+      :quote],
     'Quote (Sourceless)' => [
       /\[quote(:.*)?\](.*?)\[\/quote\1?\]/mi,
       '<fieldset><blockquote>\2</blockquote></fieldset>',

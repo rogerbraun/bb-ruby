@@ -105,6 +105,7 @@ class TestBBRuby < Test::Unit::TestCase
 
   def test_quote
     assert_equal '<fieldset><blockquote>quoting</blockquote></fieldset>', '[quote]quoting[/quote]'.bbcode_to_html
+    assert_equal '<fieldset><legend>FFF_05</legend><blockquote>quoting</blockquote></fieldset>', '[quote="FFF_05":18z47o43]quoting[/quote:18z47o43]'.bbcode_to_html
     assert_equal '<fieldset><blockquote>quoting</blockquote></fieldset>', '[quote]quoting[/quote]'.bbcode_to_html.bbcode_to_html({}, false, :disable)
     assert_equal '<fieldset><legend>black</legend><blockquote>si el niño hubiera sido de &quot;penalty&quot; le hubieran llamado <strong>system Error</strong>!!! :)</blockquote></fieldset>', "[quote:7a9ca2c5c3=\"black\"]si el niño hubiera sido de \"penalty\" le hubieran llamado [b:7a9ca2c5c3]system Error[/b:7a9ca2c5c3]!!! :)[/quote:7a9ca2c5c3]".bbcode_to_html
     assert_equal '<fieldset><legend>black</legend><blockquote>si el niño hubiera sido de &quot;penalty&quot; le hubieran llamado <strong>system Error</strong>!!! :)</blockquote></fieldset>', "[quote:7a9ca2c5c3=\"black\"]si el niño hubiera sido de \"penalty\" le hubieran llamado [b:7a9ca2c5c3]system Error[/b:7a9ca2c5c3]!!! :)[/quote:7a9ca2c5c3]".bbcode_to_html.bbcode_to_html({}, false, :disable)
@@ -217,7 +218,7 @@ class TestBBRuby < Test::Unit::TestCase
   end
 
   def test_self_tag_list
-    assert_equal 40, BBRuby.tag_list.size
+    assert_equal 41, BBRuby.tag_list.size
   end
 
   def test_redefinition_of_tag_html
